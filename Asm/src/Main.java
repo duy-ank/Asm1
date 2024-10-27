@@ -64,7 +64,7 @@ class Student {
 }
 
 class StudentManager {
-    private ArrayList<Student> students = new ArrayList<>();
+    private ArrayList<Studentname> students = new ArrayList<>();
     private Scanner scanner = new Scanner(System.in);
 
     // Method to add a new student
@@ -76,7 +76,7 @@ class StudentManager {
         String name = scanner.nextLine();
         System.out.print("Enter Student Marks: ");
         double marks = scanner.nextDouble();
-        Student student = new Student(id, name, marks);
+        Studentname student = new Studentname(id, name, marks);
         students.add(student);
         System.out.println("Student added successfully!");
     }
@@ -85,7 +85,7 @@ class StudentManager {
     public void editStudent() {
         System.out.print("Enter Student ID to edit: ");
         int id = scanner.nextInt();
-        Student student = findStudentById(id);
+        Studentname student = findStudentById(id);
         if (student != null) {
             System.out.print("Enter new name: ");
             scanner.nextLine(); // Consume newline
@@ -104,7 +104,7 @@ class StudentManager {
     public void deleteStudent() {
         System.out.print("Enter Student ID to delete: ");
         int id = scanner.nextInt();
-        Student student = findStudentById(id);
+        Studentname student = findStudentById(id);
         if (student != null) {
             students.remove(student);
             System.out.println("Student deleted successfully!");
@@ -118,15 +118,15 @@ class StudentManager {
         if (students.isEmpty()) {
             System.out.println("No students to display.");
         } else {
-            for (Student student : students) {
+            for (Studentname student : students) {
                 System.out.println(student);
             }
         }
     }
 
     // Method to find a student by ID
-    private Student findStudentById(int id) {
-        for (Student student : students) {
+    private Studentname findStudentById(int id) {
+        for (Studentname student : students) {
             if (student.getId() == id) {
                 return student;
             }
@@ -136,7 +136,7 @@ class StudentManager {
 
     // Method to sort students by marks
     public void sortStudentsByMarks() {
-        Collections.sort(students, Comparator.comparingDouble(Student::getMarks).reversed());
+        Collections.sort(students, Comparator.comparingDouble(Studentname::getMarks).reversed());
         System.out.println("Students sorted by marks.");
     }
 }

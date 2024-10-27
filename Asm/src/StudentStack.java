@@ -1,7 +1,6 @@
-package org.example;
 
 class StudentStack {
-    private Note top; // Top of the stack
+    private Node top; // Top of the stack
     private int size; // To keep track of the number of elements
 
     // Constructor
